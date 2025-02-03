@@ -27,13 +27,14 @@ console.log(session?.id);
    <section className="section_container">
     <p className="text-30-semibold"> {query? `Search results for "${query}"`:"all startups"}</p>
     <ul className="mt-7 card_grid">
-          {posts?.length > 0 ? (
-            posts.map((post: StartupTypeCard) => (
-              <StartupCard key={post?._id} post={post} />
-            ))
-          ) : (
-            <p className="no-results">No startups found</p>
-          )}
+    {posts?.length > 0 ? (
+  (posts as StartupTypeCard[]).map((post) => (
+    <StartupCard key={post?._id} post={post} />
+  ))
+) : (
+  <p className="no-results">No startups found</p>
+)}
+
     </ul>
    </section>
    <SanityLive/>
