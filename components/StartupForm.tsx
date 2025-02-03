@@ -19,7 +19,7 @@ const StartupForm = () => {
   const { toast } = useToast();
   const router = useRouter();
 
-  const handleFormSubmit = async (prevState: any, formData: FormData) => {
+  const handleFormSubmit = async (state: any, formData: FormData) => {
     try {
       const formValues = {
         title: formData.get("title") as string,
@@ -31,7 +31,7 @@ const StartupForm = () => {
 
       await formSchema.parseAsync(formValues);
 
-      const result = await createPitch(prevState, formData, pitch);
+      const result = await createPitch(state, formData, pitch);
 
       if (result.status == "SUCCESS") {
         toast({
@@ -55,7 +55,7 @@ const StartupForm = () => {
           variant: "destructive",
         });
 
-        return { ...prevState, error: "Validation failed", status: "ERROR" };
+        return { ...state, error: "Validation failed", status: "ERROR" };
       }
 
       toast({
@@ -65,7 +65,7 @@ const StartupForm = () => {
       });
 
       return {
-        ...prevState,
+        ...state,
         error: "An unexpected error has occurred",
         status: "ERROR",
       };
@@ -76,6 +76,8 @@ const StartupForm = () => {
     error: "",
     status: "INITIAL",
   });
+  // const [Pending, isPending] =  useState(false);
+
 
   return (
     <form action={formAction} className="startup-form">
@@ -167,14 +169,14 @@ const StartupForm = () => {
         {errors.pitch && <p className="startup-form_error">{errors.pitch}</p>}
       </div>
 
-      <Button
-        type="submit"
-        className="startup-form_btn text-white"
-        disabled={isPending}
-      >
-        {isPending ? "Submitting..." : "Submit Your Pitch"}
-        <Send className="size-6 ml-2" />
-      </Button>
+    <Button
+  type="submit"
+  className="startup-form_btn text-white"
+  disabled={!isPending}  // No need to call it
+>
+  {!isPending ? "Submitting..." : "Submit Your Pitch"}
+  <Send className="size-6 ml-2" />
+</Button>
     </form>
   );
 };
