@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useActionState } from "react";
@@ -71,7 +72,7 @@ const StartupForm = () => {
     }
   };
 
-  const [state, formAction, isPending] = useActionState(handleFormSubmit, {
+  const [ formAction, isPending] = useActionState(handleFormSubmit, {
     error: "",
     status: "INITIAL",
   });

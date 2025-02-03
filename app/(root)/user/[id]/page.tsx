@@ -1,6 +1,6 @@
 import { auth } from '@/auth';
 import { client } from '@/sanity/lib/client';
-import { AUTHOR_BY_GITHUB_ID_QUERY, AUTHOR_BY_ID_QUERY } from '@/sanity/lib/queries';
+import {  AUTHOR_BY_ID_QUERY } from '@/sanity/lib/queries';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import React, { Suspense } from 'react'

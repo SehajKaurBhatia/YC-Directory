@@ -1,9 +1,9 @@
-import Image from "next/image";
+
 import Search from "../../components/Search";
-import { title } from "process";
+
 import StartupCard, { StartupTypeCard } from "@/components/StartupCard";
 import { STARTUPS_QUERY } from "@/sanity/lib/queries";
-import { client } from "@/sanity/lib/client";
+
 import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 import { auth } from "@/auth";
 

@@ -12,7 +12,9 @@ const Page = async() => {
         <h1 className='heading'>Submit Your StartUp</h1>
 
         </section>
-        <StartupForm/>
+        <StartupForm
+        
+        />
         </>
   )
 }

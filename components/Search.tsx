@@ -1,8 +1,7 @@
 import React from 'react'
 import Form from "next/form"
 import SearchFormReset from './SearchFormReset';
-import Image from 'next/image';
-import { IoExitOutline } from "react-icons/io5";
+
 import { SearchIcon } from 'lucide-react';
 //form is used to use client side components on server side
 const Search = ({query}:{query?:string}) => {
